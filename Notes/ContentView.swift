@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Notes
 //
-//  Created by CIET1 on 18/02/25.
+//  Created by Jonathan Meixueiro on 18/02/25.
 //
 
 import SwiftUI
