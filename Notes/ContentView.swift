@@ -8,45 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-//        VStack(alignment: .center, spacing: 20) {
-//            Text("Don't")
-//            Text("stop")
-//            Text("believing")
-//            Text("Don't stop believing")
-//        }
-//        HStack(alignment: .bottom, spacing: 20) {
-//            Text("Don't")
-//            Text("stop")
-//                .font(.largeTitle)
-//            Text("believing")
-//            Text("Don't stop believing")
-//        }
-//        ZStack(alignment: .topLeading) {
-//            Color.green
-//            Circle()
-//            Rectangle()
-//                .foregroundStyle(Color.yellow)
-//                .frame(width: 100, height: 100)
-//            Text("Hello, World!")
-//        }
-//        ZStack(alignment: .center) {
-//            Color.green
-//            Circle()
-//            HStack(spacing: 0) {
-//                Rectangle()
-//                    .foregroundStyle(Color.yellow)
-//                    .frame(width: 100, height: 100)
-//                Rectangle()
-//                    .foregroundStyle(Color.red)
-//                    .frame(width: 100, height: 100)
-//            }
-//            VStack {
-//                Text("Hello")
-//                Text("World!")
-//            }
-//        }
-        
+    
+    @ViewBuilder
+    func CardSmallView() -> some View {
         // Little Card
         HStack {
             Text("Hello, world!")
@@ -67,7 +31,10 @@ struct ContentView: View {
         .padding()
         .background(Color.gray.opacity(0.1))
         .cornerRadius(16)
-        
+    }
+    
+    @ViewBuilder
+    func CardMediumView() -> some View {
         // Big Card
         VStack {
             HStack {
@@ -92,6 +59,28 @@ struct ContentView: View {
         .padding()
         .background(Color.gray.opacity(0.1))
         .cornerRadius(16)
+    }
+    
+    var body: some View {
+        // Small cards carousel
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(0..<63) { _ in
+                    CardSmallView()
+                }
+            }
+        }
+        
+        // Medium cards list
+        ScrollView(.vertical) {
+            VStack {
+                ForEach(0..<63) { _ in
+                    CardSmallView()
+                    CardSmallView()
+                    CardMediumView()
+                }
+            }
+        }
     }
 }
 
