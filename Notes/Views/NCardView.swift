@@ -79,19 +79,19 @@ struct NCardView: View {
     VStack {
         NCardView(
             card:
-                NCard(title: "Grocery Shopping List", text: "Milk, Bread, Eggs, Cheese, Apples, Carrots, and a few spices.", type: .small))
+                NCard(title: "Grocery Shopping List", text: "Milk, Bread, Eggs, Cheese, Apples, Carrots, and a few spices.", type: .small, isFavorite: true))
         
         NCardView(
             card:
-                NCard(title: "Meeting with Marketing Team", text: "Monday: do some stuff on monday. \nTuesday: do some more stuff on tuesday.", type: .small))
+                NCard(title: "Meeting with Marketing Team", text: "Monday: do some stuff on monday. \nTuesday: do some more stuff on tuesday.", type: .small, isFavorite: false))
         
         NCardView(
             card:
-                NCard(title: "Meeting with Marketing Team", text: "Discuss Q1 goals, review social media strategy and allocate budget.", type: .medium))
+                NCard(title: "Meeting with Marketing Team", text: "Discuss Q1 goals, review social media strategy and allocate budget.", type: .medium, isFavorite: true))
         
         NCardView(
             card:
-                NCard(title: "Grocery Shopping List", text: "Milk, Bread, Eggs, Cheese, Apples, Carrots, and a few spices.", type: .medium))
+                NCard(title: "Grocery Shopping List", text: "Milk, Bread, Eggs, Cheese, Apples, Carrots, and a few spices.", type: .medium, isFavorite: false))
         
     }
 }
