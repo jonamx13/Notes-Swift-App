@@ -12,7 +12,7 @@ struct NCard: Identifiable {
     let title: String
     let text: String
     let type: NCardType
-    let isFavorite: Bool
+    var isFavorite: Bool = false
 }
 
 enum NCardType {

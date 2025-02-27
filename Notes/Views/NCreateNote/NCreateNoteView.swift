@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct NCreateNoteView: View {
-    @State private var title: String = ""
-    @State private var text: String = ""
-    @State private var size: NCardType = .small
-    @State private var isFavorite: Bool = false
+    @StateObject var viewModel: NCreateNoteViewModel = NCreateNoteViewModel()
     
     var onNoteCreated: ((NCard) -> Void)?
     
     func onTap() {
-        let card = NCard(title: title, text: text, type: size, isFavorite: isFavorite)
+        let card = viewModel.createNote()
         
         print("This is your new card: \(card)")
         
@@ -31,13 +28,13 @@ struct NCreateNoteView: View {
                     .bold()
                     .padding(.bottom, 10)
                 
-                TextField("Title", text: $title)
+                TextField("Title", text: $viewModel.title)
                     .font(.headline)
                     .padding()
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(8)
 
-                TextEditor(text: $text)
+                TextEditor(text: $viewModel.text)
                     .scrollContentBackground(.hidden)
                     .font(.body)
                     .frame(height:150)
@@ -48,14 +45,14 @@ struct NCreateNoteView: View {
                 HStack {
                     Text("Size")
                     Spacer()
-                    Picker("Size", selection: $size) {
+                    Picker("Size", selection: $viewModel.size) {
                         Text("Small").tag(NCardType.small)
                         Text("Medium").tag(NCardType.medium)
                     }
                 }
                 .padding()
                 
-                Toggle("Mark as Favorite", isOn: $isFavorite)
+                Toggle("Mark as Favorite", isOn: $viewModel.isFavorite)
                     .padding()
                 
                 Button {
