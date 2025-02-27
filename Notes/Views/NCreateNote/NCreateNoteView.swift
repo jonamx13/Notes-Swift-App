@@ -28,20 +28,12 @@ struct NCreateNoteView: View {
                     .bold()
                     .padding(.bottom, 10)
                 
-                TextField("Title", text: $viewModel.title)
-                    .font(.headline)
-                    .padding()
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(8)
-
-                TextEditor(text: $viewModel.text)
-                    .scrollContentBackground(.hidden)
-                    .font(.body)
-                    .frame(height:150)
-                    .padding()
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(8)
+                // Using NTextField to refactor
+                NTextField(placeholder: "Title", text: $viewModel.title)
                 
+                // Using NTextField to refactor
+                NTextEditor(text: $viewModel.text)
+                    
                 HStack {
                     Text("Size")
                     Spacer()
