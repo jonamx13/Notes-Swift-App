@@ -2,14 +2,30 @@
 //  GesturesPractice.swift
 //  Notes
 //
-//  Created by CIET1 on 27/02/25.
+//  Created by Jonathan Meixueiro on 27/02/25.
 //
 
 import SwiftUI
 
 struct GesturesPractice: View {
+    @State var color: Color = .black
+    @State var offset: CGSize = .zero
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Circle()
+            .foregroundStyle(color)
+            .offset(offset)
+            .onTapGesture(count: 2) {
+                color = .red
+            }
+            .onLongPressGesture(minimumDuration: 3) {
+                color = .blue
+            }
+            .gesture (
+                DragGesture()
+                    .onChanged { value in
+                        offset = value.translation
+                    }
+            )
     }
 }
 
